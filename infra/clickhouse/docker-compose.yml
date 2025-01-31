@@ -1,0 +1,15 @@
+services:
+  clickhouse:
+    image: bitnami/clickhouse:latest
+    container_name: clickhouse
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      - clickhouse-network
+    ports:
+      - 8123:8123 # http
+      - 9099:9000 # tcp
+
+networks:
+  clickhouse-network:
+    driver: bridge
