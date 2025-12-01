@@ -85,16 +85,6 @@ CREATE TABLE IF NOT EXISTS users_info
 ORDER BY (registration_date, user_id);
 """
 
-verify_query = """
-SELECT 
-    user_id,
-    name,
-    email,
-    registration_date
-FROM users_info
-ORDER BY registration_date DESC;
-"""
-
 statistics_query = """
 SELECT
     toDate(registration_date) as date,
