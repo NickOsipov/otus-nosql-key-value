@@ -1,0 +1,20 @@
+services:
+  redis:
+    image: redis:7.4.2
+    container_name: redis
+    ports:
+      - 6380:6379
+    volumes:
+      - ./data:/data
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    container_name: clickhouse
+    environment:
+      - CLICKHOUSE_DB=default
+      - CLICKHOUSE_USER=default
+      - CLICKHOUSE_PASSWORD=password
+      - CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1
+    ports:
+      - 8123:8123 # http
+      - 9099:9000 # tcp

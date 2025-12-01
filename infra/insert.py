@@ -15,7 +15,7 @@ fake = Faker()
 Faker.seed(0)  # Для воспроизводимости результатов
 fake = Faker(['en_US'])
 
-engine = create_engine("clickhouse+native://default@localhost:9099/default")
+engine = create_engine("clickhouse+native://default:password@localhost:9099/default")
 
 def generate_random_user(user_id):
     """
